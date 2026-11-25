@@ -25,3 +25,8 @@ Checks:
 - `bun run lint`
 
 Do not commit `.env`, provider credentials, service-role keys, or database passwords.
+
+
+## Source import note
+
+The complete application source has been prepared as a separate clean project archive. This GitHub repository currently contains the brand/theme, project configuration, and selected Supabase migration files; it is **not yet a complete build checkout** until the full source archive is extracted into the repository root. Do not deploy this repository by itself yet.
