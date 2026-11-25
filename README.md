@@ -1,28 +1,29 @@
 # F.I LOGS
 
-F.I LOGS is a digital marketplace for social media accounts and related digital services, with wallet, order management, virtual numbers, SMS, social boosting and bill-payment workflows.
+F.I LOGS is a Nigerian digital marketplace for social account listings, logs, SMS/virtual numbers, SMM services, wallet funding, and bill payments.
 
-## Brand system
-- **Royal Blue:** `#014BAA` — primary brand colour, navigation, actions and accents.
-- **Light Cream:** `#F8F3F0` — primary light surface and page background.
-- Dark mode uses deep navy surfaces with accessible blue accents.
+## Brand palette
+- Royal Blue: `#014BAA` — primary brand colour, actions, navigation, and highlights.
+- Light Cream: `#F8F3F0` — light surfaces and page backgrounds.
 
-The theme is centralized in `src/styles.css`. Legacy `gold` utility names are retained for compatibility and now resolve to the Royal Blue palette.
+## Supabase project
+The application is configured for the active Supabase project `iqnpmmezuznwznwqhbau` (`successuchendu90@gmail.com's Project`).
+
+Copy `.env.example` to `.env` and fill in the project's publishable key. Add `SUPABASE_SERVICE_ROLE_KEY` only to the server deployment's secret store; never expose it to browser code or commit it.
 
 ## Development
-Requires Node.js 22+ and npm (or Bun).
-
 ```sh
 npm install
 npm run dev
 ```
 
-Useful scripts: `npm run build`, `npm run test`, and `npm run lint`.
+Build and test:
+```sh
+npm run build
+npm test
+npm run lint
+```
 
-## Environment and Supabase
-Copy `.env.example` to `.env` and fill in the public Supabase URL and publishable key. Configure server-only integration secrets in the deployment provider's secret manager. Never commit `.env`, service-role keys, webhook secrets, or provider API keys.
+Provider credentials (PocketFi, Gramlsocial, and SMS provider keys) are intentionally left blank. Add them through server-side deployment secrets or the admin configuration flow after obtaining valid credentials.
 
-Database migrations are in `supabase/migrations/`. Apply and validate them against the target Supabase project before enabling production traffic. Live project credentials and provider secrets are intentionally excluded from this repository.
-
-## Deployment readiness
-The application uses TanStack Start, Vite, Cloudflare tooling, PWA assets and server-side API routes. Complete deployment configuration, Supabase connection, authentication redirect URLs, database migrations, webhook URLs and provider credentials after connecting the target Supabase project.
+The original SQL migration history contains multiple historical full-schema snapshots. Review and reconcile the chain before applying it to a new database.
